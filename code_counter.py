@@ -5,8 +5,37 @@ Created on 2013-9-2
 @author: pkking
 '''
 
+import datetime
 import os
 
+class time(object):
+    '''
+    compute running time
+    '''
+    def __init__(self):
+        '''
+        Constructor
+        '''
+        
+    def start(self):
+        '''
+        start count
+        '''
+        self.start_time = datetime.datetime.now()
+        
+    def end(self):
+        '''
+        end count
+        '''
+        self.end_time = datetime.datetime.now()
+        
+    def count_time(self):
+        '''
+        print the time it cost
+        '''
+        t = self.end_time - self.start_time
+        print('it takes ' + str(t.days) + ' days and ' + str(t.seconds)+' seconds and ' + str(t.microseconds)+' microseconds to run the program')       
+        
 class the_code(object):
     '''
     the code class
@@ -78,8 +107,12 @@ class the_code(object):
             print'there are ' + str(self.py_file_counter) + ' python source files'
             print'the py source files lines are:' + str(self.py_line_counter)
 
+t = time()
+t.start()
 my_code = the_code()
 my_code.source_files_count('c')
 my_code.source_files_count('py')
+t.end()
 my_code.print_line()
+t.count_time()
 raw_input("Press Enter to continue...")
