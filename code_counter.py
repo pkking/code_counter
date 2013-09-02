@@ -34,7 +34,7 @@ class time(object):
         print the time it cost
         '''
         t = self.end_time - self.start_time
-        print('it takes ' + str(t.days) + ' days and ' + str(t.seconds)+' seconds and ' + str(t.microseconds)+' microseconds to run the program')       
+        print('running takes ' + str(t.days) + ' days ' + str(t.seconds)+' seconds and ' + str(t.microseconds)+' microsecond')       
         
 class the_code(object):
     '''
@@ -72,7 +72,7 @@ class the_code(object):
                 fobj = open(c_file,'r+')
                 lines = fobj.readlines()
                 for line in lines:
-                    if(';' in line):
+                    if(';' in line or '#' in line):
                         self.c_line_counter +=1
                 fobj.close()
         elif file_type == 'py' or file_type == 'PY' or file_type == 'pY' or file_type == 'Py':
@@ -101,11 +101,11 @@ class the_code(object):
         print the line num
         '''
         if(self.c_file_counter):
-            print'there are ' + str(self.c_file_counter) + ' c source files'
+            print'there are ' + str(self.c_file_counter) + ' C source files'
             print'the c and h source files lines are :' + str(self.c_line_counter)
         if(self.py_file_counter):
-            print'there are ' + str(self.py_file_counter) + ' python source files'
-            print'the py source files lines are:' + str(self.py_line_counter)
+            print'there are ' + str(self.py_file_counter) + ' Python source files'
+            print'the Python source files lines are:' + str(self.py_line_counter)
 
 t = time()
 t.start()
